@@ -1,7 +1,6 @@
 package com.intuit.product.helper;
 
-import com.intuit.product.constants.ResponseType;
-import lombok.extern.slf4j.Slf4j;
+import com.intuit.product.model.ValidationResponse;
 
 import java.util.Random;
 
@@ -11,15 +10,16 @@ public class ResponseHelper {
 
     private static int limit;
 
-    public ResponseHelper() {
-        this.random = new Random();
-        this.limit = ResponseType.values().length + 1;
+    static {
+        random = new Random();
+        limit = ValidationResponse.values().length;
     }
 
-    public static ResponseType getRandomResponse() {
-        ResponseType[] responses = ResponseType.values();
-        int index = random.nextInt(limit)-1;
-        return responses[index];
+    public static ValidationResponse getRandomResponse() {
+//        ValidationResponse[] responses = ValidationResponse.values();
+//        int index = random.nextInt(limit);
+//        return responses[index];
+        return ValidationResponse.ACCEPTED;
     }
 
 }
